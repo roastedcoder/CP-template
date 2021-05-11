@@ -15,7 +15,7 @@ template <class X> class fenwick_tree {
 		}
 		return res;
 	}
-	int rangeSum(int l, int r) {
+	X rangeSum(int l, int r) {
 		return (sum(r)-sum(l-1));
 	}
 	void update(int i, X val) {
