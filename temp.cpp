@@ -33,12 +33,12 @@ template <class X> istream& operator>>(istream &cin, vector<X> &a) {
 }
 // vector output
 template <class X> ostream& operator<<(ostream &cout, vector<X> const &a) {
-	cout << "["; for(int i = 0; i < a.size(); i++) {cout << a[i]; if(i != a.size()-1) cout << ", ";} cout << "]";
+	for(int i = 0; i<a.size(); i++) cout<<a[i]<<" ";
 	return cout;
 }
 // pair output
 template <class X, class Y> ostream& operator<<(ostream &cout, pair <X, Y> const &p) {
-	cout<<"("<<p.first<<", "<<p.second<<")";
+	cout<<p.first<<" "<<p.second;
 	return cout;
 }
 //__________________________________________________________________
