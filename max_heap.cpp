@@ -60,13 +60,3 @@ public:
 		cout<<endl;
 	}
 };
-
-void solve() {
-	int n; cin>>n;
-	vector <int> a(n); cin>>a;
-	max_heap <int> heap;
-	heap.buildHeap(a);
-	heap.push(19);
-	heap.pop();
-	heap.print();
-}
