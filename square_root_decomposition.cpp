@@ -1,6 +1,8 @@
 template <class X>
 class sqrt_dec {
 	private:
+	int MINIMUM = INT_MIN; // please change
+	int MAXIMUM = INT_MAX; // please change
 	int arrSize;
 	int chunkSize;
 	int sqroot;
@@ -17,7 +19,7 @@ class sqrt_dec {
 	}
 	
 	void preProcessRmQ() {
-		X pre = ULTRA;
+		X pre = MAXIMUM;
 		int j = 0;
 		for(int i = 0; i<arrSize; i++) {
 			pre = min(pre, arr[i]);
@@ -30,7 +32,7 @@ class sqrt_dec {
 	}
 	
 	void preProcessRMQ() {
-		X pre = -ULTRA;
+		X pre = MINIMUM;
 		int j = 0;
 		for(int i = 0; i<arrSize; i++) {
 			pre = max(pre, arr[i]);
@@ -58,12 +60,11 @@ class sqrt_dec {
 	int getMin(int l, int r) {
 		int left = l/sqroot;
 		int right = r/sqroot;
+		X res = MAXIMUM;
 		if(left == right) {
-			X res = ULTRA;
 			for(int i = l; i<=r; i++) res = min(res, arr[i]);
 			return res;
 		}
-		X res = ULTRA;
 		for(int i = l; i<sqroot*(left+1); i++) res = min(res, arr[i]);
 		for(int i = left+1; i<right; i++) res = min(res, chunk[i]);
 		for(int i = sqroot*right; i<=r; i++) res = min(res, arr[i]);
@@ -73,12 +74,11 @@ class sqrt_dec {
 	int getMax(int l, int r) {
 		int left = l/sqroot;
 		int right = r/sqroot;
+		X res = MINIMUM;
 		if(left == right) {
-			X res = -ULTRA;
 			for(int i = l; i<=r; i++) res = max(res, arr[i]);
 			return res;
 		}
-		X res = -ULTRA;
 		for(int i = l; i<sqroot*(left+1); i++) res = max(res, arr[i]);
 		for(int i = left+1; i<right; i++) res = max(res, chunk[i]);
 		for(int i = sqroot*right; i<=r; i++) res = max(res, arr[i]);
@@ -107,5 +107,6 @@ class sqrt_dec {
 		-> for range minimum query, use preProcessRmQ and getMin
 		-> for range maximum query, use preProcessRMQ and getMax
 		-> for range sum, use preProcessSum and getSum
+		-> *change MAXIMUM and MINIMUM
 	*/
 };
