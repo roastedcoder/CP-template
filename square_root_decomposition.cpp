@@ -101,6 +101,7 @@ class sqrt_dec {
 	}
 	
 	/*
+		-> eg: sqrt_dec <int> Query;
 		-> can solve static RmQ, RMQ, Range Sum
 		-> not suitable for string, char and non-primitive dt
 		-> pass the initial array as constructor argument
