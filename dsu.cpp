@@ -1,21 +1,21 @@
 template <class X>
 class dsu {
     private:
-    int n;
+    int len;
     vector <int> parent;
     vector <int> size;
 
     public:
     dsu(int n) {
-        this->n = n;
-        parent.resize(n+1);
-        size.resize(n+1, 1);
+        this->len = n+1;
+        parent.resize(len);
+        size.resize(len, 1);
         for(int i = 0; i<n; i++) parent[i] = i;
     }
 
     int Find(int a) { // path compression
         if(parent[a] == a) return a;
-        return Find(parent[a]);
+        return parent[a] = Find(parent[a]);
     }
 
     void Union(int a, int b) { // union by size
